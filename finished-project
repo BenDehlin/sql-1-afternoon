@@ -5,16 +5,16 @@ INSERT INTO person (name, age, height, favorite_color, city) VALUES
   ('person 3', 7, 33, 'yellow', 'City 3'),
   ('person 4', 500, 1114, 'green', 'City 4'),
   ('person 5', 53, 25, 'purple', 'City 5');
-SELECT * FROM person ORDER BY height DESC;
-SELECT * FROM person WHERE age > 20;
-SELECT * FROM person WHERE height = 18;
-SELECT * FROM person WHERE height < 20 AND age > 30;
-SELECT * FROM person WHERE NOT age = 27;
-SELECT * FROM person WHERE NOT favorite_color = 'red';
-SELECT * FROM person WHERE NOT favorite_color = 'red' AND NOT favorite_color = 'blue';
-SELECT * FROM person WHERE favorite_color = 'orange' OR favorite_color = 'green';
-SELECT * FROM person WHERE favorite_color IN('orange', 'green', 'blue');
-SELECT * FROM person WHERE favorite_color IN('yellow', 'purple');
+SELECT name FROM person ORDER BY height DESC;
+SELECT name FROM person WHERE age > 20;
+SELECT name FROM person WHERE height = 18;
+SELECT name FROM person WHERE height < 20 AND age > 30;
+SELECT name FROM person WHERE NOT age = 27;
+SELECT name FROM person WHERE NOT favorite_color = 'red';
+SELECT name FROM person WHERE NOT favorite_color = 'red' AND NOT favorite_color = 'blue';
+SELECT name FROM person WHERE favorite_color = 'orange' OR favorite_color = 'green';
+SELECT name FROM person WHERE favorite_color IN('orange', 'green', 'blue');
+SELECT name FROM person WHERE favorite_color IN('yellow', 'purple');
 
 INSERT INTO artist (name) VALUES
 	('Bob'), ('John'), ('Sarah');
