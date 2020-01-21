@@ -16,6 +16,25 @@ SELECT name FROM person WHERE favorite_color = 'orange' OR favorite_color = 'gre
 SELECT name FROM person WHERE favorite_color IN('orange', 'green', 'blue');
 SELECT name FROM person WHERE favorite_color IN('yellow', 'purple');
 
+CREATE TABLE orders 
+	(order_id SERIAL PRIMARY KEY, 
+   person_id INTEGER, 
+   product_name VARCHAR(80), 
+   product_price INTEGER, 
+   quantity INTEGER);
+   
+INSERT INTO orders
+	(person_id, product_name, product_price, quantity)
+VALUES
+	(2, 'ice cream', 600, 4),(5, 'burger', 550, 15),
+  (1, 'ice cream', 40, 15),(2, 'another burger', 550, 23),
+  (1, 'taco', 30, 2),(3, 'chocolate', 550, 12);
+
+SELECT * FROM orders;
+SELECT SUM(quantity) FROM orders;
+SELECT SUM(product_price) FROM orders;
+SELECT SUM(product_price) FROM orders WHERE person_id = 1;
+
 INSERT INTO artist (name) VALUES
 	('Bob'), ('John'), ('Sarah');
 SELECT * FROM artist ORDER BY name DESC LIMIT 10;
