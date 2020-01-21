@@ -1,0 +1,40 @@
+CREATE TABLE person (person_id SERIAL PRIMARY KEY, name VARCHAR(200), age INTEGER, height INTEGER, city VARCHAR(200), favorite_color VARCHAR(200));
+INSERT INTO person (name, age, height, favorite_color, city) VALUES 
+	('person 1', 20, 51, 'red', 'City 1'),
+  ('person 2', 12, 122, 'blue', 'City 2'),
+  ('person 3', 7, 33, 'yellow', 'City 3'),
+  ('person 4', 500, 1114, 'green', 'City 4'),
+  ('person 5', 53, 25, 'purple', 'City 5');
+SELECT * FROM person ORDER BY height DESC;
+SELECT * FROM person WHERE age > 20;
+SELECT * FROM person WHERE height = 18;
+SELECT * FROM person WHERE height < 20 AND age > 30;
+SELECT * FROM person WHERE NOT age = 27;
+SELECT * FROM person WHERE NOT favorite_color = 'red';
+SELECT * FROM person WHERE NOT favorite_color = 'red' AND NOT favorite_color = 'blue';
+SELECT * FROM person WHERE favorite_color = 'orange' OR favorite_color = 'green';
+SELECT * FROM person WHERE favorite_color IN('orange', 'green', 'blue');
+SELECT * FROM person WHERE favorite_color IN('yellow', 'purple');
+
+INSERT INTO artist (name) VALUES
+	('Bob'), ('John'), ('Sarah');
+SELECT * FROM artist ORDER BY name DESC LIMIT 10;
+SELECT * FROM artist ORDER BY name LIMIT 5;
+SELECT * FROM artist WHERE SUBSTR(name, 1, 5) = 'Black';
+SELECT * FROM artist WHERE name LIKE '%Black%';
+
+SELECT first_name, last_name FROM employee WHERE city = 'Calgary';
+SELECT birth_date FROM employee ORDER BY birth_date DESC LIMIT 1;
+SELECT birth_date FROM employee ORDER BY birth_date LIMIT 1;
+SELECT employee_id FROM employee WHERE first_name = 'Nancy' AND last_name = 'Edwards';
+SELECT * FROM employee WHERE reports_to = 2;
+SELECT COUNT(*) FROM employee WHERE city = 'Lethbridge';
+
+SELECT COUNT(*) FROM invoice WHERE billing_country = 'USA';
+SELECT MAX(total) FROM invoice;
+SELECT MIN(total) FROM invoice;
+SELECT * FROM invoice WHERE total > 5;
+SELECT COUNT(*) FROM invoice WHERE total < 5;
+SELECT COUNT(*) FROM invoice WHERE billing_state IN('CA', 'TX', 'AZ');
+SELECT AVG(total) FROM invoice;
+SELECT SUM(total) FROM invoice;
